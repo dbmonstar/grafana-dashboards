@@ -33,108 +33,64 @@
     "gnetId": null,
     "graphTooltip": 1,
     "id": null,
-    "iteration": 1541579640259,
+    "iteration": 1529322310813,
     "links": [
-        {
-            "icon": "dashboard",
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "QAN"
-            ],
-            "targetBlank": false,
-            "title": "Query Analytics",
-            "type": "link",
-            "url": "/graph/dashboard/db/_pmm-query-analytics"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "OS"
-            ],
-            "targetBlank": false,
-            "title": "OS",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MySQL"
-            ],
-            "targetBlank": false,
-            "title": "MySQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MongoDB"
-            ],
-            "targetBlank": false,
-            "title": "MongoDB",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PostgreSQL"
-            ],
-            "targetBlank": false,
-            "title": "PostgreSQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "HA"
-            ],
-            "targetBlank": false,
-            "title": "HA",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Cloud"
-            ],
-            "targetBlank": false,
-            "title": "Cloud",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Insight"
-            ],
-            "targetBlank": false,
-            "title": "Insight",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PMM"
-            ],
-            "targetBlank": false,
-            "title": "PMM",
-            "type": "dashboards"
-        }
+      {
+        "icon": "dashboard",
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "QAN"
+        ],
+        "targetBlank": false,
+        "title": "Query Analytics",
+        "type": "link",
+        "url": "/graph/dashboard/db/_pmm-query-analytics"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "OS"
+        ],
+        "targetBlank": false,
+        "title": "OS",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "MySQL"
+        ],
+        "targetBlank": false,
+        "title": "MySQL",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "Insight"
+        ],
+        "targetBlank": false,
+        "title": "Insight",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "includeVars": true,
+        "keepTime": false,
+        "tags": [
+          "DBmon"
+        ],
+        "title": "DBMON",
+        "type": "dashboards"
+      }
     ],
     "panels": [
         {
@@ -160,7 +116,7 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 4,
+                "w": 6,
                 "x": 0,
                 "y": 0
             },
@@ -241,8 +197,8 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 3,
-                "x": 4,
+                "w": 6,
+                "x": 6,
                 "y": 0
             },
             "hideTimeOverride": true,
@@ -322,8 +278,8 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 3,
-                "x": 7,
+                "w": 6,
+                "x": 12,
                 "y": 0
             },
             "hideTimeOverride": true,
@@ -403,8 +359,8 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 3,
-                "x": 10,
+                "w": 6,
+                "x": 18,
                 "y": 0
             },
             "hideTimeOverride": true,
@@ -484,9 +440,9 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 3,
-                "x": 13,
-                "y": 0
+                "w": 6,
+                "x": 0,
+                "y": 3
             },
             "hideTimeOverride": true,
             "id": 11,
@@ -565,9 +521,9 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 4,
-                "x": 16,
-                "y": 0
+                "w": 6,
+                "x": 6,
+                "y": 3
             },
             "hideTimeOverride": true,
             "id": 5,
@@ -657,9 +613,9 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 4,
-                "x": 20,
-                "y": 0
+                "w": 6,
+                "x": 12,
+                "y": 3
             },
             "hideTimeOverride": true,
             "id": 4,
@@ -740,7 +696,7 @@
                 "h": 7,
                 "w": 24,
                 "x": 0,
-                "y": 3
+                "y": 6
             },
             "id": 46,
             "legend": {
@@ -772,7 +728,6 @@
             "targets": [
                 {
                     "expr": "rate(mongodb_mongos_op_counters_total{cluster=\"$cluster\", type!=\"command\"}[$interval]) or irate(mongodb_mongos_op_counters_total{cluster=\"$cluster\", type!=\"command\"}[5m])",
-                    "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -832,10 +787,10 @@
             "fill": 2,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 10
+                "y": 13
             },
             "id": 7,
             "legend": {
@@ -845,8 +800,6 @@
                 "max": true,
                 "min": true,
                 "show": true,
-                "sort": "avg",
-                "sortDesc": true,
                 "total": false,
                 "values": true
             },
@@ -865,7 +818,6 @@
             "targets": [
                 {
                     "expr": "sum(mongodb_mongos_connections{cluster=\"$cluster\", state=\"current\"})",
-                    "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -925,10 +877,10 @@
             "fill": 2,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 10
+                "y": 13
             },
             "id": 31,
             "legend": {
@@ -938,8 +890,6 @@
                 "max": true,
                 "min": true,
                 "show": true,
-                "sort": "avg",
-                "sortDesc": true,
                 "total": false,
                 "values": true
             },
@@ -958,7 +908,6 @@
             "targets": [
                 {
                     "expr": "sum(mongodb_mongos_metrics_cursor_open{cluster=\"$cluster\", state=\"total\"} or mongodb_mongos_cursors{cluster=\"$cluster\", state=\"total_open\"})",
-                    "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1019,10 +968,10 @@
             "fill": 2,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 18
+                "y": 20
             },
             "id": 3,
             "legend": {
@@ -1113,10 +1062,10 @@
             "fill": 2,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 18
+                "y": 20
             },
             "id": 38,
             "legend": {
@@ -1206,10 +1155,10 @@
             "fill": 6,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 26
+                "y": 27
             },
             "id": 30,
             "legend": {
@@ -1243,8 +1192,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(sum(rate(mongodb_mongod_op_counters_total{cluster=\"$cluster\", type!=\"command\"}[$interval]) or \nirate(mongodb_mongod_op_counters_total{cluster=\"$cluster\", type!=\"command\"}[5m])) by (instance) * on (instance) group_right mongodb_mongod_replset_my_state{cluster=\"$cluster\"} / mongodb_mongod_replset_my_state{cluster=\"$cluster\"}) by (set)",
-                    "format": "time_series",
+                    "expr": "sum(sum(rate(mongodb_mongod_op_counters_total{cluster=\"$cluster\", type!=\"command\"}[$interval]) or irate(mongodb_mongod_op_counters_total{cluster=\"$cluster\", type!=\"command\"}[5m])) by (instance) * on (instance) group_right mongodb_mongod_replset_my_state{cluster=\"$cluster\"} / mongodb_mongod_replset_my_state{cluster=\"$cluster\"}) by (set)",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1320,10 +1268,10 @@
             "fill": 6,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 26
+                "y": 27
             },
             "id": 41,
             "legend": {
@@ -1354,8 +1302,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "max_over_time(mongodb_mongos_sharding_shard_chunks_total{cluster=\"$cluster\"}[$interval]) or \nmax_over_time(mongodb_mongos_sharding_shard_chunks_total{cluster=\"$cluster\"}[5m])",
-                    "format": "time_series",
+                    "expr": "mongodb_mongos_sharding_shard_chunks_total{cluster=\"$cluster\"}",
                     "interval": "$interval",
                     "intervalFactor": 1,
                     "legendFormat": "{{shard}}",
@@ -1414,7 +1361,7 @@
             "fill": 6,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 0,
                 "y": 34
@@ -1450,7 +1397,6 @@
             "targets": [
                 {
                     "expr": "sum(mongodb_mongod_connections{cluster=\"$cluster\", state=\"current\"} * on (instance) group_right mongodb_mongod_replset_my_state{cluster=\"$cluster\"}/ mongodb_mongod_replset_my_state{cluster=\"$cluster\"}) by (set)",
-                    "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1511,7 +1457,7 @@
             "fill": 2,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 12,
                 "y": 34
@@ -1546,7 +1492,6 @@
             "targets": [
                 {
                     "expr": "sum(sum(mongodb_mongod_metrics_cursor_open{cluster=\"$cluster\", state=\"total\"} or mongodb_mongod_cursors{cluster=\"$cluster\", state=\"total_open\"}) by (instance) * on (instance) group_right mongodb_mongod_replset_my_state{cluster=\"$cluster\"} / mongodb_mongod_replset_my_state{cluster=\"$cluster\"}) by (set)",
-                    "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1606,10 +1551,10 @@
             "fill": 2,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 42
+                "y": 41
             },
             "id": 14,
             "legend": {
@@ -1641,7 +1586,6 @@
             "targets": [
                 {
                     "expr": "max(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\", state=\"PRIMARY\"}) by (set) - min(mongodb_mongod_replset_member_optime_date{cluster=\"$cluster\", state=\"SECONDARY\"}) by (set)",
-                    "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1701,10 +1645,10 @@
             "fill": 2,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 42
+                "y": 41
             },
             "id": 27,
             "legend": {
@@ -1736,7 +1680,6 @@
             "targets": [
                 {
                     "expr": "max(max(mongodb_mongod_replset_oplog_head_timestamp{cluster=\"$cluster\"}-mongodb_mongod_replset_oplog_tail_timestamp{cluster=\"$cluster\"}) by (instance) * on (instance) group_right mongodb_mongod_replset_my_state{cluster=\"$cluster\"} / mongodb_mongod_replset_my_state{cluster=\"$cluster\"}) by (set)",
-                    "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1796,10 +1739,10 @@
             "fill": 2,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 50
+                "y": 48
             },
             "id": 12,
             "legend": {
@@ -1831,7 +1774,6 @@
             "targets": [
                 {
                     "expr": "max(changes(mongodb_mongod_replset_member_election_date{cluster=\"$cluster\"}[$interval])) by (set)",
-                    "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
                     "legendFormat": "{{set}}",
@@ -1890,10 +1832,10 @@
             "fill": 2,
             "grid": {},
             "gridPos": {
-                "h": 8,
+                "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 50
+                "y": 48
             },
             "id": 22,
             "legend": {
@@ -1925,7 +1867,6 @@
             "targets": [
                 {
                     "expr": "max(max(mongodb_mongod_locks_time_locked_global_microseconds_total{cluster=\"$cluster\", database=\"Collection\"}) by (instance) * on (instance) group_right mongodb_mongod_replset_my_state{cluster=\"$cluster\"} / mongodb_mongod_replset_my_state{cluster=\"$cluster\"}) by (set)",
-                    "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,

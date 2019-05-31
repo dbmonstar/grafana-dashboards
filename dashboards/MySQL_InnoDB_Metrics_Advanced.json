@@ -35,146 +35,64 @@
     "id": null,
     "iteration": 1533051723834,
     "links": [
-        {
-            "icon": "dashboard",
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "QAN"
-            ],
-            "targetBlank": false,
-            "title": "Query Analytics",
-            "type": "link",
-            "url": "/graph/dashboard/db/_pmm-query-analytics"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "OS"
-            ],
-            "targetBlank": false,
-            "title": "OS",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MySQL"
-            ],
-            "targetBlank": false,
-            "title": "MySQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MongoDB"
-            ],
-            "targetBlank": false,
-            "title": "MongoDB",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PostgreSQL"
-            ],
-            "targetBlank": false,
-            "title": "PostgreSQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "HA"
-            ],
-            "targetBlank": false,
-            "title": "HA",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Cloud"
-            ],
-            "targetBlank": false,
-            "title": "Cloud",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Insight"
-            ],
-            "targetBlank": false,
-            "title": "Insight",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PMM"
-            ],
-            "targetBlank": false,
-            "title": "PMM",
-            "type": "dashboards"
-        }
+      {
+        "icon": "dashboard",
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "QAN"
+        ],
+        "targetBlank": false,
+        "title": "Query Analytics",
+        "type": "link",
+        "url": "/graph/dashboard/db/_pmm-query-analytics"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "OS"
+        ],
+        "targetBlank": false,
+        "title": "OS",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "MySQL"
+        ],
+        "targetBlank": false,
+        "title": "MySQL",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "Insight"
+        ],
+        "targetBlank": false,
+        "title": "Insight",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "includeVars": true,
+        "keepTime": false,
+        "tags": [
+          "DBmon"
+        ],
+        "title": "DBMON",
+        "type": "dashboards"
+      }
     ],
     "panels": [
-        {
-            "gridPos": {
-                "h": 1,
-                "w": 24,
-                "x": 0,
-                "y": 0
-            },
-            "id": 69,
-            "title": "",
-            "type": "row"
-        },
-        {
-            "content": "<center>If only some of your graphs are populated, but not all, you likely need to enable innodb_monitor_enable=all .  Check <a href=\\\"https://www.percona.com/doc/percona-monitoring-and-management/conf-mysql.html\\\" target=\\\"_blank\\\"> instructions </a> on how to configure MySQL for best results.</center>",
-            "gridPos": {
-                "h": 2,
-                "w": 24,
-                "x": 0,
-                "y": 1
-            },
-            "id": 67,
-            "links": [],
-            "mode": "html",
-            "title": "",
-            "type": "text"
-        },
-        {
-            "collapsed": false,
-            "gridPos": {
-                "h": 1,
-                "w": 24,
-                "x": 0,
-                "y": 3
-            },
-            "id": 65,
-            "panels": [],
-            "title": "",
-            "type": "row"
-        },
         {
             "aliasColors": {},
             "bars": false,
@@ -198,7 +116,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 4
+                "y": 0
             },
             "id": 43,
             "legend": {
@@ -285,7 +203,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "Change Buffer Performance",
             "tooltip": {
@@ -354,7 +271,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 4
+                "y": 0
             },
             "id": 44,
             "legend": {
@@ -409,7 +326,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Log Buffer Performance",
             "tooltip": {
@@ -449,7 +365,7 @@
                     "min": null,
                     "show": true
                 }
-           ],
+            ],
             "yaxis": {
                 "align": false,
                 "alignLevel": null
@@ -478,7 +394,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 11
+                "y": 7
             },
             "id": 58,
             "legend": {
@@ -560,7 +476,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Page Splits",
             "tooltip": {
@@ -629,7 +544,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 11
+                "y": 7
             },
             "id": 59,
             "legend": {
@@ -699,7 +614,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Page Reorgs",
             "tooltip": {
@@ -768,7 +682,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 18
+                "y": 14
             },
             "id": 45,
             "legend": {
@@ -832,7 +746,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Purge Performance",
             "tooltip": {
@@ -901,7 +814,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 18
+                "y": 14
             },
             "id": 48,
             "legend": {
@@ -965,7 +878,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Locking",
             "tooltip": {
@@ -1034,7 +946,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 25
+                "y": 21
             },
             "id": 51,
             "legend": {
@@ -1097,7 +1009,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Main Thread Utilization",
             "tooltip": {
@@ -1166,7 +1077,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 25
+                "y": 21
             },
             "id": 50,
             "legend": {
@@ -1256,7 +1167,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Transactions Information",
             "tooltip": {
@@ -1325,7 +1235,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 32
+                "y": 28
             },
             "id": 49,
             "legend": {
@@ -1370,7 +1280,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Undo Space Usage",
             "tooltip": {
@@ -1441,7 +1350,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 32
+                "y": 28
             },
             "id": 53,
             "legend": {
@@ -1486,7 +1395,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Activity",
             "tooltip": {
@@ -1555,7 +1463,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 39
+                "y": 35
             },
             "id": 55,
             "legend": {
@@ -1620,7 +1528,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Contention - OS Waits",
             "tooltip": {
@@ -1689,7 +1596,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 39
+                "y": 35
             },
             "id": 54,
             "legend": {
@@ -1754,7 +1661,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Contention - Spin Rounds",
             "tooltip": {
@@ -1825,7 +1731,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 46
+                "y": 42
             },
             "id": 47,
             "legend": {
@@ -1870,7 +1776,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Group Commit Batch Size",
             "tooltip": {
@@ -1939,7 +1844,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 46
+                "y": 42
             },
             "id": 52,
             "legend": {
@@ -2000,7 +1905,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Purge Throttling",
             "tooltip": {
@@ -2069,7 +1973,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 53
+                "y": 49
             },
             "id": 57,
             "legend": {
@@ -2139,7 +2043,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB AHI Usage",
             "tooltip": {
@@ -2208,7 +2111,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 53
+                "y": 49
             },
             "id": 56,
             "legend": {
@@ -2291,7 +2194,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB AHI Maintenance",
             "tooltip": {
@@ -2353,7 +2255,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 60
+                "y": 56
             },
             "id": 60,
             "legend": {
@@ -2430,7 +2332,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Online DDL",
             "tooltip": {
@@ -2486,7 +2387,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 60
+                "y": 56
             },
             "id": 61,
             "legend": {
@@ -2557,7 +2458,6 @@
             ],
             "thresholds": [],
             "timeFrom": null,
-            "timeRegions": [],
             "timeShift": null,
             "title": "InnoDB Defragmentation",
             "tooltip": {
@@ -2610,7 +2510,10 @@
                 "auto": true,
                 "auto_count": 200,
                 "auto_min": "1s",
-                "current": {},
+                "current": {
+                    "text": "auto",
+                    "value": "$__auto_interval_interval"
+                },
                 "datasource": "Prometheus",
                 "hide": 0,
                 "includeAll": false,
@@ -2662,7 +2565,6 @@
                 ],
                 "query": "1s,5s,1m,5m,1h,6h,1d",
                 "refresh": 2,
-                "skipUrlSync": false,
                 "type": "interval"
             },
             {
@@ -2670,7 +2572,29 @@
                 "allValue": null,
                 "current": {},
                 "datasource": "Prometheus",
-                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": "Host0",
+                "multi": false,
+                "multiFormat": "regex values",
+                "name": "host0",
+                "options": [],
+                "query": "label_values(up{instance=~'$host'}, instance0)",
+                "refresh": 1,
+                "refresh_on_load": false,
+                "regex": "",
+                "sort": 1,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allFormat": "glob",
+                "allValue": null,
+                "current": {},
+                "datasource": "Prometheus",
                 "hide": 0,
                 "includeAll": false,
                 "label": "Host",
@@ -2682,7 +2606,6 @@
                 "refresh": 1,
                 "refresh_on_load": false,
                 "regex": "",
-                "skipUrlSync": false,
                 "sort": 1,
                 "tagValuesQuery": null,
                 "tags": [],

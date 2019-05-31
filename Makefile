@@ -9,7 +9,7 @@ build:
 	cd pmm-app && npm run build && cd ..
 
 pack:
-	tar czf pmm-app.tar.gz pmm-app
+	tar czf pmm-app.tar.gz import-dashboards.py pmm-app/dist
 
 install:
 	docker exec pmm-server supervisorctl stop grafana

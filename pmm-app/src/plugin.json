@@ -60,7 +60,10 @@
     {"type": "dashboard", "name": "System_Overview", "path": "dashboards/System_Overview.json"},
     {"type": "dashboard", "name": "Amazon_RDS___Aurora_MySQL__Metrics", "path": "dashboards/Amazon_RDS___Aurora_MySQL__Metrics.json"},
     {"type": "dashboard", "name": "MySQL_MyISAM_Aria_Metrics", "path": "dashboards/MySQL_MyISAM_Aria_Metrics.json"},
-    {"type": "dashboard", "name": "Cross_Server_Graphs", "path": "dashboards/Cross_Server_Graphs.json"},
+    {"type": "dashboard", "name": "Cross_Server_Graphs_1m", "path": "dashboards/Cross_Server_Graphs_1m.json"},
+    {"type": "dashboard", "name": "Cross_Server_Graphs_5m", "path": "dashboards/Cross_Server_Graphs_5m.json"},
+    {"type": "dashboard", "name": "Cross_Server_Graphs_1h", "path": "dashboards/Cross_Server_Graphs_1h.json"},
+    {"type": "dashboard", "name": "Alerts_Status", "path": "dashboards/Alerts_Status.json"},
     {"type": "dashboard", "name": "MongoDB_RocksDB", "path": "dashboards/MongoDB_RocksDB.json"},
     {"type": "dashboard", "name": "MongoDB_ReplSet", "path": "dashboards/MongoDB_ReplSet.json"},
     {"type": "dashboard", "name": "PXC_Galera_Cluster_Overview", "path": "dashboards/PXC_Galera_Cluster_Overview.json"},
@@ -80,3 +83,4 @@
     "plugins": [ ]
   }
 }
+

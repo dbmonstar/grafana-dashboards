@@ -33,108 +33,64 @@
     "gnetId": null,
     "graphTooltip": 1,
     "id": null,
-    "iteration": 1541694224353,
+    "iteration": 1529322355859,
     "links": [
-        {
-            "icon": "dashboard",
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "QAN"
-            ],
-            "targetBlank": false,
-            "title": "Query Analytics",
-            "type": "link",
-            "url": "/graph/dashboard/db/_pmm-query-analytics"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "OS"
-            ],
-            "targetBlank": false,
-            "title": "OS",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MySQL"
-            ],
-            "targetBlank": false,
-            "title": "MySQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MongoDB"
-            ],
-            "targetBlank": false,
-            "title": "MongoDB",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PostgreSQL"
-            ],
-            "targetBlank": false,
-            "title": "PostgreSQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "HA"
-            ],
-            "targetBlank": false,
-            "title": "HA",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Cloud"
-            ],
-            "targetBlank": false,
-            "title": "Cloud",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Insight"
-            ],
-            "targetBlank": false,
-            "title": "Insight",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PMM"
-            ],
-            "targetBlank": false,
-            "title": "PMM",
-            "type": "dashboards"
-        }
+      {
+        "icon": "dashboard",
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "QAN"
+        ],
+        "targetBlank": false,
+        "title": "Query Analytics",
+        "type": "link",
+        "url": "/graph/dashboard/db/_pmm-query-analytics"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "OS"
+        ],
+        "targetBlank": false,
+        "title": "OS",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "MySQL"
+        ],
+        "targetBlank": false,
+        "title": "MySQL",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "Insight"
+        ],
+        "targetBlank": false,
+        "title": "Insight",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "includeVars": true,
+        "keepTime": false,
+        "tags": [
+          "DBmon"
+        ],
+        "title": "DBMON",
+        "type": "dashboards"
+      }
     ],
     "panels": [
         {
@@ -160,7 +116,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 3,
+                "h": 4,
                 "w": 6,
                 "x": 0,
                 "y": 0
@@ -297,7 +253,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 3,
+                "h": 4,
                 "w": 4,
                 "x": 6,
                 "y": 0
@@ -381,7 +337,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 3,
+                "h": 4,
                 "w": 4,
                 "x": 10,
                 "y": 0
@@ -426,7 +382,6 @@
             "targets": [
                 {
                     "expr": "time() - mongodb_mongod_replset_member_election_date{instance=\"$host\"}",
-                    "format": "time_series",
                     "interval": "5m",
                     "intervalFactor": 1,
                     "legendFormat": "",
@@ -466,7 +421,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 3,
+                "h": 4,
                 "w": 4,
                 "x": 14,
                 "y": 0
@@ -550,7 +505,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 3,
+                "h": 4,
                 "w": 6,
                 "x": 18,
                 "y": 0
@@ -634,7 +589,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 3
+                "y": 4
             },
             "id": 63,
             "legend": {
@@ -738,7 +693,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 3
+                "y": 4
             },
             "id": 27,
             "legend": {
@@ -854,7 +809,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 10
+                "y": 11
             },
             "id": 14,
             "legend": {
@@ -959,7 +914,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 10
+                "y": 11
             },
             "id": 12,
             "legend": {
@@ -1063,7 +1018,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 17
+                "y": 18
             },
             "id": 76,
             "legend": {
@@ -1093,8 +1048,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "mongodb_mongod_replset_member_uptime{instance=\"$host\"}\n* on (name) group_right(state) (max_over_time(mongodb_mongod_replset_my_name[$interval]) or max_over_time(mongodb_mongod_replset_my_name[5m]))",
-                    "format": "time_series",
+                    "expr": "mongodb_mongod_replset_member_uptime{instance=\"$host\"} * on (name) group_right(state) mongodb_mongod_replset_my_name",
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1142,7 +1096,7 @@
                     "logBase": 1,
                     "max": null,
                     "min": null,
-                    "show": false
+                    "show": true
                 }
             ],
             "yaxis": {
@@ -1173,7 +1127,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 17
+                "y": 18
             },
             "id": 75,
             "legend": {
@@ -1281,7 +1235,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 24
+                "y": 25
             },
             "id": 13,
             "legend": {
@@ -1310,9 +1264,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "mongodb_mongod_replset_member_ping_ms{instance=\"$host\"}\n* on (name) group_right(state) (max_over_time(mongodb_mongod_replset_my_name[$interval]) or max_over_time(mongodb_mongod_replset_my_name[5m]))",
-                    "format": "time_series",
-                    "hide": false,
+                    "expr": "mongodb_mongod_replset_member_ping_ms{instance=\"$host\"} * on (name) group_right mongodb_mongod_replset_my_name",
                     "interval": "$interval",
                     "intervalFactor": 1,
                     "legendFormat": "{{instance}}",
@@ -1388,7 +1340,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 24
+                "y": 25
             },
             "id": 79,
             "legend": {
@@ -1493,7 +1445,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 31
+                "y": 32
             },
             "id": 81,
             "legend": {
@@ -1615,7 +1567,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 31
+                "y": 32
             },
             "id": 84,
             "legend": {
@@ -1738,7 +1690,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 38
+                "y": 39
             },
             "id": 85,
             "legend": {
@@ -1843,7 +1795,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 38
+                "y": 39
             },
             "id": 80,
             "legend": {
@@ -2047,6 +1999,29 @@
                 "tagValuesQuery": null,
                 "tags": [],
                 "tagsQuery": null,
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allFormat": "glob",
+                "allValue": null,
+                "current": {},
+                "datasource": "Prometheus",
+                "hide": 2,
+                "includeAll": false,
+                "label": "Host0",
+                "multi": false,
+                "multiFormat": "regex values",
+                "name": "host0",
+                "options": [],
+                "query": "label_values(up{instance=~'$host'}, instance0)",
+                "refresh": 1,
+                "refresh_on_load": false,
+                "regex": "",
+                "sort": 1,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
                 "type": "query",
                 "useTags": false
             },

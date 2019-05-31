@@ -1,0 +1,4057 @@
+{
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.1.3"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "5.0.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": false,
+  "gnetId": null,
+  "graphTooltip": 1,
+  "id": null,
+  "iteration": 1548157362714,
+  "links": [
+    {
+      "icon": "dashboard",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "QAN"
+      ],
+      "targetBlank": false,
+      "title": "Query Analytics",
+      "type": "link",
+      "url": "/graph/dashboard/db/_pmm-query-analytics"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "OS"
+      ],
+      "targetBlank": false,
+      "title": "OS",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "MySQL"
+      ],
+      "targetBlank": false,
+      "title": "MySQL",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Insight"
+      ],
+      "targetBlank": false,
+      "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": false,
+      "tags": [
+        "DBmon"
+      ],
+      "title": "DBMON",
+      "type": "dashboards"
+    }
+  ],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 26,
+      "panels": [],
+      "title": "CPU",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Current cpu usage percentage.",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 14,
+        "x": 0,
+        "y": 1
+      },
+      "id": 24,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": null,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashUri": "db/cpu-utilization-details-cores",
+          "dashboard": "CPU Utilization Details (Cores)",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "CPU Utilization Details (Cores)",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/system-overview",
+          "dashboard": "System Overview",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "System Overview",
+          "type": "dashboard"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__='rec:node_cpu_usage:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CPU Usage",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Cpu Waits for I/O. Check disk or network status if this value is high. It could be from random I/O disk read pattern if your disk is not SSD.",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 10,
+        "x": 14,
+        "y": 1
+      },
+      "id": 6,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashUri": "db/cpu-utilization-details-cores",
+          "dashboard": "CPU Utilization Details (Cores)",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "CPU Utilization Details (Cores)",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/disk-performance",
+          "dashboard": "Disk Performance",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "Disk Performance",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/system-overview",
+          "dashboard": "System Overview",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "System Overview",
+          "type": "dashboard"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__='rec:node_cpu_wait_usage:$type:5m', mode='iowait'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CPU Wait : I/O",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Cpu Waits for \"USER\". Application use cpu resource too much. This is mostly caused by inefficient query execution.",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 10,
+        "x": 14,
+        "y": 6
+      },
+      "id": 48,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__='rec:node_cpu_wait_usage:$type:5m', mode='user'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CPU Waits : USER",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 11
+      },
+      "id": 35,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": null,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__='rec:node_load_avg:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Load Average",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 39,
+      "panels": [],
+      "title": "Memory",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 14,
+        "x": 0,
+        "y": 17
+      },
+      "height": "",
+      "id": 36,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": 120,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__='rec:node_mem_usage:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Memory Usage (%)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 10,
+        "x": 14,
+        "y": 17
+      },
+      "height": "",
+      "id": 7,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__='rec:node_mem_swap_byte:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Swap Memory (Bytes)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "decbytes",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 10,
+        "x": 14,
+        "y": 22
+      },
+      "height": "",
+      "id": 37,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__='rec:node_mem_cached_pct:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Cached Memory(%)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 53,
+      "panels": [],
+      "title": "Disk",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Similar disk Utilization, but sum io times for each device's.",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "id": 54,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashUri": "db/disk-performance",
+          "dashboard": "Disk Performance",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "Disk Performance",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/system-overview",
+          "dashboard": "System Overview",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "System Overview",
+          "type": "dashboard"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__=~'rec:node_disk_io_ms:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk Total IO Time",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "ms",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Shows amount of physical IOs (reads and writes) Spikes in number of IOs served often corresponds to performance problems due to IO subsystem overload.",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 33
+      },
+      "id": 51,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashUri": "db/disk-performance",
+          "dashboard": "Disk Performance",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "Disk Performance",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/system-overview",
+          "dashboard": "System Overview",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "System Overview",
+          "type": "dashboard"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__=~'rec:node_disk_reads:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk Read Operations",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Shows amount of physical IOs (reads and writes) Spikes in number of IOs served often corresponds to performance problems due to IO subsystem overload.",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "id": 59,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashUri": "db/disk-performance",
+          "dashboard": "Disk Performance",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "Disk Performance",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/system-overview",
+          "dashboard": "System Overview",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "System Overview",
+          "type": "dashboard"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__=~'rec:node_disk_writes:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk Write Operations",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 38
+      },
+      "id": 58,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashUri": "db/disk-performance",
+          "dashboard": "Disk Performance",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "Disk Performance",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/system-overview",
+          "dashboard": "System Overview",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "System Overview",
+          "type": "dashboard"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__=~'rec:node_disk_read_bytes:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk Read Activity",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "decbytes",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 38
+      },
+      "id": 60,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashUri": "db/disk-performance",
+          "dashboard": "Disk Performance",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "Disk Performance",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/system-overview",
+          "dashboard": "System Overview",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "System Overview",
+          "type": "dashboard"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__=~'rec:node_disk_write_bytes:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk Write Activity",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "decbytes",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Shows average latency for Reads and Writes IO Devices.  Higher than typical latency for highly loaded storage indicates saturation (overload) and is frequent cause of performance problems.  Higher than normal latency also can indicate internal storage problems.",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 43
+      },
+      "id": 56,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": null,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashUri": "db/disk-performance",
+          "dashboard": "Disk Performance",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "Disk Performance",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/system-overview",
+          "dashboard": "System Overview",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "System Overview",
+          "type": "dashboard"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__=~'rec:node_disk_read_latency:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk Read Latency",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "ms",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Shows average latency for Reads and Writes IO Devices.  Higher than typical latency for highly loaded storage indicates saturation (overload) and is frequent cause of performance problems.  Higher than normal latency also can indicate internal storage problems.",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 43
+      },
+      "id": 55,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": null,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashUri": "db/disk-performance",
+          "dashboard": "Disk Performance",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "Disk Performance",
+          "type": "dashboard"
+        },
+        {
+          "dashUri": "db/system-overview",
+          "dashboard": "System Overview",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": true,
+          "title": "System Overview",
+          "type": "dashboard"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__=~'rec:node_disk_write_latency:$type:5m'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk Write Latency",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "ms",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 53
+      },
+      "id": 28,
+      "panels": [],
+      "title": "MySQL overview",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 14,
+        "x": 0,
+        "y": 54
+      },
+      "id": 3,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_conn_usage:$type:5m'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_conn_usage:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Connection Usage (%)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 10,
+        "x": 14,
+        "y": 54
+      },
+      "id": 18,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_conn_runnings:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_conn_runnings:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Running Threads",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 2,
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 14,
+        "x": 0,
+        "y": 59
+      },
+      "id": 19,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_slow_queries:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_slow_queries:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Slow queries",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 2,
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 64
+      },
+      "id": 4,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": 100,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_questions:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_questions:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Queries/sec",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 64
+      },
+      "id": 22,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": 100,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_dmls:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_dmls:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DML/sec",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 64
+      },
+      "id": 14,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": null,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_stmt_scans:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_stmt_scans:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Rows/query",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 72
+      },
+      "id": 32,
+      "panels": [],
+      "title": "InnoDB status",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 73
+      },
+      "id": 15,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_ckpg_usage:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_ckpg_usage:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "InnoDB Check Point Age (%)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "logBase": 1,
+          "max": "100",
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 78
+      },
+      "id": 44,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_row_reads:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_row_reads:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "InnoDB rows read",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 78
+      },
+      "id": 45,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_row_writes:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_row_writes:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "InnoDB rows write",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 83
+      },
+      "id": 46,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_trxs:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_trxs:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "InnoDB Transactions",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 14,
+        "x": 0,
+        "y": 88
+      },
+      "id": 47,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_trx_hist:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_trx_hist:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "InnoDB Transaction History",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 14,
+        "y": 88
+      },
+      "id": 41,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "/Disk reads(.*)/",
+          "bars": false,
+          "lines": false,
+          "pointradius": 1,
+          "points": true
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_read_reqs:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_read_reqs:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_disk_reads:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_disk_reads:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "$interval",
+          "intervalFactor": 2,
+          "legendFormat": "Disk reads - {{ instance }} ",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "InnoDB Buffer pool reads",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 14,
+        "x": 0,
+        "y": 93
+      },
+      "id": 50,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "/Disk reads(.*)/",
+          "bars": false,
+          "lines": false,
+          "pointradius": 1,
+          "points": true
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_lock_waits:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_lock_waits:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "InnoDB Lock Wait",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 10,
+        "x": 14,
+        "y": 96
+      },
+      "id": 42,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": 250,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_write_reqs:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_write_reqs:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "InnoDB Buffer pool writes",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 14,
+        "x": 0,
+        "y": 98
+      },
+      "id": 40,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_innodb_dead_locks:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_innodb_dead_locks:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "InnoDB Deallocks",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 103
+      },
+      "id": 30,
+      "panels": [],
+      "title": "Replication",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 104
+      },
+      "id": 20,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_repl_delay:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_repl_delay:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "MySQL Replication Delay (sec)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 110
+      },
+      "id": 34,
+      "panels": [],
+      "title": "Network",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 111
+      },
+      "height": "400px",
+      "id": 16,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_net_rx_byte:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_net_rx_byte:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "MySQL receive  (Bytes)",
+      "tooltip": {
+        "msResolution": true,
+        "shared": false,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 111
+      },
+      "height": "400px",
+      "id": 11,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 120,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time({__name__='rec:mysql_net_tx_byte:$type:5m', instance=~'$host'}[$interval]) and on (instance) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))\nor\n(max_over_time({__name__='rec:mysql_net_tx_byte:$type:5m', instance0=~'$host'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "MySQL transmit (Bytes)",
+      "tooltip": {
+        "msResolution": true,
+        "shared": false,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 116
+      },
+      "height": "400px",
+      "id": 10,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__='rec:node_net_rx_byte:$type:5m', device!='lo'}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}:{{ device }}",
+          "metric": "",
+          "refId": "B",
+          "step": 300,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Network receive (Bytes)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "bytes",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": false,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 116
+      },
+      "height": "400px",
+      "id": 17,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "5m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time({__name__='rec:node_net_tx_byte:$type:5m', device!=\"lo\"}[$interval]) and on (instance0) (max_over_time({__name__=~'rec:agent_mysql:snap:5m|rec:agent_linux:snap:5m', instance=~'$host'}[$interval]) <= $read_only^2-3 or max_over_time({__name__='rec:mysql_readonly:snap:5m', instance=~'$host'}[$interval]) == $read_only)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}:{{ device }}",
+          "metric": "",
+          "refId": "B",
+          "step": 300,
+          "target": ""
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Network transmit (Bytes)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "bytes",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "5m",
+  "schemaVersion": 16,
+  "style": "dark",
+  "tags": [
+    "DBmon"
+  ],
+  "templating": {
+    "list": [
+      {
+        "auto": true,
+        "auto_count": 100,
+        "auto_min": "5m",
+        "current": {
+          "text": "auto",
+          "value": "$__auto_interval_interval"
+        },
+        "hide": 0,
+        "label": "Interval",
+        "name": "interval",
+        "options": [
+          {
+            "selected": true,
+            "text": "auto",
+            "value": "$__auto_interval_interval"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "24h",
+            "value": "24h"
+          }
+        ],
+        "query": "5m,10m,1h,24h",
+        "refresh": 2,
+        "type": "interval"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "ALL",
+          "value": "2"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Read-only",
+        "multi": false,
+        "name": "read_only",
+        "options": [
+          {
+            "selected": true,
+            "text": "ALL",
+            "value": "2"
+          },
+          {
+            "selected": false,
+            "text": "OFF",
+            "value": "0"
+          },
+          {
+            "selected": false,
+            "text": "ON",
+            "value": "1"
+          }
+        ],
+        "query": "2,0,1",
+        "type": "custom"
+      },
+      {
+        "allFormat": "glob",
+        "allValue": null,
+        "current": {},
+        "datasource": "Prometheus",
+        "hide": 2,
+        "includeAll": false,
+        "label": "Host0",
+        "multi": false,
+        "multiFormat": "regex values",
+        "name": "host0",
+        "options": [],
+        "query": "label_values(up{instance=~'$host'}, instance0)",
+        "refresh": 1,
+        "refresh_on_load": false,
+        "regex": "",
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "Prometheus",
+        "hide": 0,
+        "includeAll": true,
+        "label": "host",
+        "multi": true,
+        "name": "host",
+        "options": [],
+        "query": "label_values({__name__=~\"up\"}, instance)",
+        "refresh": 1,
+        "regex": "",
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "avg",
+          "value": "avg"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Type",
+        "multi": false,
+        "name": "type",
+        "options": [
+          {
+            "selected": true,
+            "text": "avg",
+            "value": "avg"
+          },
+          {
+            "selected": false,
+            "text": "min",
+            "value": "min"
+          },
+          {
+            "selected": false,
+            "text": "max",
+            "value": "max"
+          }
+        ],
+        "query": "avg,min,max",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-2d",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false,
+    "refresh_intervals": [
+      "5m"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "Cross Server Graphs - 5m",
+  "uid": "Swz9QGNmz5m",
+  "version": 1
+}

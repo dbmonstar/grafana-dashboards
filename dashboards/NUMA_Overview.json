@@ -35,106 +35,62 @@
     "id": null,
     "iteration": 1530868317376,
     "links": [
-        {
-            "icon": "dashboard",
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "QAN"
-            ],
-            "targetBlank": false,
-            "title": "Query Analytics",
-            "type": "link",
-            "url": "/graph/dashboard/db/_pmm-query-analytics"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "OS"
-            ],
-            "targetBlank": false,
-            "title": "OS",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MySQL"
-            ],
-            "targetBlank": false,
-            "title": "MySQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MongoDB"
-            ],
-            "targetBlank": false,
-            "title": "MongoDB",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PostgreSQL"
-            ],
-            "targetBlank": false,
-            "title": "PostgreSQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "HA"
-            ],
-            "targetBlank": false,
-            "title": "HA",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Cloud"
-            ],
-            "targetBlank": false,
-            "title": "Cloud",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Insight"
-            ],
-            "targetBlank": false,
-            "title": "Insight",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PMM"
-            ],
-            "targetBlank": false,
-            "title": "PMM",
-            "type": "dashboards"
-        }
+      {
+        "icon": "dashboard",
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "QAN"
+        ],
+        "targetBlank": false,
+        "title": "Query Analytics",
+        "type": "link",
+        "url": "/graph/dashboard/db/_pmm-query-analytics"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "OS"
+        ],
+        "targetBlank": false,
+        "title": "OS",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "MySQL"
+        ],
+        "targetBlank": false,
+        "title": "MySQL",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "Insight"
+        ],
+        "targetBlank": false,
+        "title": "Insight",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "includeVars": true,
+        "keepTime": false,
+        "tags": [
+          "DBmon"
+        ],
+        "title": "DBMON",
+        "type": "dashboards"
+      }
     ],
     "panels": [
         {
@@ -211,7 +167,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum by (node) (node_memory_numa_MemTotal{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_MemTotal{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -219,7 +175,7 @@
                     "refId": "C"
                 },
                 {
-                    "expr": "sum by (node) (node_memory_numa_MemFree{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_MemFree{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -227,7 +183,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum by (node) (node_memory_numa_MemUsed{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_MemUsed{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -315,7 +271,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum by (node) (node_memory_numa_MemFree{instance=\"$host\"}) * 100 /\nsum by (node) (node_memory_numa_MemTotal{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_MemFree{instance=\"$host0\"}) * 100 /\nsum by (node) (node_memory_numa_MemTotal{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -323,7 +279,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum by (node) (node_memory_numa_MemUsed{instance=\"$host\"}) * 100 /\nsum by (node) (node_memory_numa_MemTotal{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_MemUsed{instance=\"$host0\"}) * 100 /\nsum by (node) (node_memory_numa_MemTotal{instance=\"$host0\"})",
                     "format": "time_series",
                     "hide": true,
                     "interval": "$interval",
@@ -423,7 +379,7 @@
                     "calculatedInterval": "2m",
                     "datasourceErrors": {},
                     "errors": {},
-                    "expr": "sum(node_memory_numa_Active{instance=\"$host\"})",
+                    "expr": "sum(node_memory_numa_Active{instance=\"$host0\"})",
                     "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
@@ -434,7 +390,7 @@
                     "step": 300
                 },
                 {
-                    "expr": "sum(node_memory_numa_Inactive{instance=\"$host\"})",
+                    "expr": "sum(node_memory_numa_Inactive{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -442,7 +398,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum(node_memory_numa_Dirty{instance=\"$host\"})",
+                    "expr": "sum(node_memory_numa_Dirty{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -450,7 +406,7 @@
                     "refId": "C"
                 },
                 {
-                    "expr": "sum(node_memory_numa_Bounce{instance=\"$host\"})",
+                    "expr": "sum(node_memory_numa_Bounce{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -458,7 +414,7 @@
                     "refId": "D"
                 },
                 {
-                    "expr": "sum(node_memory_numa_Mapped{instance=\"$host\"})",
+                    "expr": "sum(node_memory_numa_Mapped{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -466,7 +422,7 @@
                     "refId": "E"
                 },
                 {
-                    "expr": "sum(node_memory_numa_KernelStack{instance=\"$host\"})",
+                    "expr": "sum(node_memory_numa_KernelStack{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -560,7 +516,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(node_memory_numa_numa_hit_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host\"}[5m])",
+                    "expr": "rate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[5m])",
                     "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
@@ -569,7 +525,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum(rate(node_memory_numa_numa_hit_total{instance=\"$host\"}[$interval])) or\nsum(irate(node_memory_numa_numa_hit_total{instance=\"$host\"}[5m]))",
+                    "expr": "sum(rate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[$interval])) or\nsum(irate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[5m]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -679,7 +635,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(node_memory_numa_numa_miss_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host\"}[5m])",
+                    "expr": "rate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[5m])",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -687,7 +643,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "rate(node_memory_numa_numa_miss_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host\"}[5m]) * 100 /\n(rate(node_memory_numa_numa_hit_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host\"}[5m]) + \nrate(node_memory_numa_numa_miss_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host\"}[5m]))",
+                    "expr": "rate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[5m]) * 100 /\n(rate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[5m]) + \nrate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[5m]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -695,7 +651,7 @@
                     "refId": "C"
                 },
                 {
-                    "expr": "sum(rate(node_memory_numa_numa_miss_total{instance=\"$host\"}[$interval])) or\nsum(irate(node_memory_numa_numa_miss_total{instance=\"$host\"}[5m]))",
+                    "expr": "sum(rate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[$interval])) or\nsum(irate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[5m]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -703,7 +659,7 @@
                     "refId": "E"
                 },
                 {
-                    "expr": "rate(node_memory_numa_numa_foreign_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_numa_foreign_total{instance=\"$host\"}[5m])",
+                    "expr": "rate(node_memory_numa_numa_foreign_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_numa_foreign_total{instance=\"$host0\"}[5m])",
                     "format": "time_series",
                     "hide": true,
                     "interval": "$interval",
@@ -712,7 +668,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "rate(node_memory_numa_numa_foreign_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_numa_foreign_total{instance=\"$host\"}[5m]) * 100 /\n(rate(node_memory_numa_numa_hit_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host\"}[5m]) + \nrate(node_memory_numa_numa_foreign_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_numa_foreign_total{instance=\"$host\"}[5m]))",
+                    "expr": "rate(node_memory_numa_numa_foreign_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_numa_foreign_total{instance=\"$host0\"}[5m]) * 100 /\n(rate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[5m]) + \nrate(node_memory_numa_numa_foreign_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_numa_foreign_total{instance=\"$host0\"}[5m]))",
                     "format": "time_series",
                     "hide": true,
                     "interval": "$interval",
@@ -721,7 +677,7 @@
                     "refId": "D"
                 },
                 {
-                    "expr": "sum(rate(node_memory_numa_numa_miss_total{instance=\"$host\"}[$interval])) or\nsum(irate(node_memory_numa_numa_miss_total{instance=\"$host\"}[5m])) * 100 /\nsum((rate(node_memory_numa_numa_hit_total{instance=\"$host\"}[$interval])) or\nsum(irate(node_memory_numa_numa_hit_total{instance=\"$host\"}[5m])) + \nsum(rate(node_memory_numa_numa_miss_total{instance=\"$host\"}[$interval])) or\nsum(irate(node_memory_numa_numa_miss_total{instance=\"$host\"}[5m])))",
+                    "expr": "sum(rate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[$interval])) or\nsum(irate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[5m])) * 100 /\nsum((rate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[$interval])) or\nsum(irate(node_memory_numa_numa_hit_total{instance=\"$host0\"}[5m])) + \nsum(rate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[$interval])) or\nsum(irate(node_memory_numa_numa_miss_total{instance=\"$host0\"}[5m])))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -807,7 +763,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(avg_over_time(node_memory_numa_Active_anon{instance=\"$host\"}[$interval]))",
+                    "expr": "sum(avg_over_time(node_memory_numa_Active_anon{instance=\"$host0\"}[$interval]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -815,7 +771,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum(avg_over_time(node_memory_numa_Inactive_anon{instance=\"$host\"}[$interval]))",
+                    "expr": "sum(avg_over_time(node_memory_numa_Inactive_anon{instance=\"$host0\"}[$interval]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -901,7 +857,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(avg_over_time(node_memory_numa_Active_file{instance=\"$host\"}[$interval]))",
+                    "expr": "sum(avg_over_time(node_memory_numa_Active_file{instance=\"$host0\"}[$interval]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -909,7 +865,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum(avg_over_time(node_memory_numa_Inactive_file{instance=\"$host\"}[$interval]))",
+                    "expr": "sum(avg_over_time(node_memory_numa_Inactive_file{instance=\"$host0\"}[$interval]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -996,7 +952,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum by (node) (node_memory_numa_Shmem{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_Shmem{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1004,7 +960,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum by (node) (node_memory_numa_ShmemHugePages{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_ShmemHugePages{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1012,7 +968,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "sum by (node) (node_memory_numa_ShmemPmdMapped{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_ShmemPmdMapped{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1099,7 +1055,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum by (node) (node_memory_numa_HugePages_Total{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_HugePages_Total{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1107,7 +1063,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum by (node) (node_memory_numa_HugePages_Free{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_HugePages_Free{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1115,7 +1071,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "sum by (node) (node_memory_numa_HugePages_Surp{instance=\"$host\"})",
+                    "expr": "sum by (node) (node_memory_numa_HugePages_Surp{instance=\"$host0\"})",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1214,7 +1170,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(node_memory_numa_local_node_total{instance=\"$host\"}[$interval]) or\nirate(node_memory_numa_local_node_total{instance=\"$host\"}[$interval])",
+                    "expr": "rate(node_memory_numa_local_node_total{instance=\"$host0\"}[$interval]) or\nirate(node_memory_numa_local_node_total{instance=\"$host0\"}[$interval])",
                     "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
@@ -1223,7 +1179,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum(rate(node_memory_numa_local_node_total{instance=\"$host\"}[$interval])) or\nsum(irate(node_memory_numa_local_node_total{instance=\"$host\"}[$interval]))",
+                    "expr": "sum(rate(node_memory_numa_local_node_total{instance=\"$host0\"}[$interval])) or\nsum(irate(node_memory_numa_local_node_total{instance=\"$host0\"}[$interval]))",
                     "format": "time_series",
                     "hide": false,
                     "interval": "$interval",
@@ -1324,7 +1280,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[5m])",
+                    "expr": "rate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[5m])",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1332,7 +1288,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum(rate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[$interval])) or\nsum(irate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[5m]))",
+                    "expr": "sum(rate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[$interval])) or\nsum(irate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[5m]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1340,7 +1296,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "sum(rate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[$interval])) or\nsum(irate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[5m])) * 100 /\n(sum(rate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[$interval])) or\nsum(irate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[5m])) + \nsum(rate(node_memory_numa_local_node_total{instance=\"$host\"}[$interval])) or\nsum(irate(node_memory_numa_local_node_total{instance=\"$host\"}[$interval])))",
+                    "expr": "sum(rate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[$interval])) or\nsum(irate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[5m])) * 100 /\n(sum(rate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[$interval])) or\nsum(irate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[5m])) + \nsum(rate(node_memory_numa_local_node_total{instance=\"$host0\"}[$interval])) or\nsum(irate(node_memory_numa_local_node_total{instance=\"$host0\"}[$interval])))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1436,7 +1392,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(avg_over_time(node_memory_numa_Slab{instance=\"$host\"}[$interval]))",
+                    "expr": "sum(avg_over_time(node_memory_numa_Slab{instance=\"$host0\"}[$interval]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1444,7 +1400,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "sum(avg_over_time(node_memory_numa_SReclaimable{instance=\"$host\"}[$interval]))",
+                    "expr": "sum(avg_over_time(node_memory_numa_SReclaimable{instance=\"$host0\"}[$interval]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1452,7 +1408,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "sum(avg_over_time(node_memory_numa_SUnreclaim{instance=\"$host\"}[$interval]))",
+                    "expr": "sum(avg_over_time(node_memory_numa_SUnreclaim{instance=\"$host0\"}[$interval]))",
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
@@ -1565,7 +1521,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "avg_over_time(node_memory_numa_MemTotal{instance=\"$host\", node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_MemTotal{instance=\"$host0\", node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -1573,7 +1529,7 @@
                             "refId": "C"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_MemFree{instance=\"$host\", node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_MemFree{instance=\"$host0\", node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -1581,7 +1537,7 @@
                             "refId": "A"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_MemUsed{instance=\"$host\", node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_MemUsed{instance=\"$host0\", node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -1676,7 +1632,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "(node_memory_numa_MemFree{instance=\"$host\", node=\"$node\"}) * 100 /\n(node_memory_numa_MemTotal{instance=\"$host\", node=\"$node\"})",
+                            "expr": "(node_memory_numa_MemFree{instance=\"$host0\", node=\"$node\"}) * 100 /\n(node_memory_numa_MemTotal{instance=\"$host0\", node=\"$node\"})",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -1684,7 +1640,7 @@
                             "refId": "A"
                         },
                         {
-                            "expr": "(node_memory_numa_MemUsed{instance=\"$host\", node=\"$node\"}) * 100 /\n(node_memory_numa_MemTotal{instance=\"$host\", node=\"$node\"})",
+                            "expr": "(node_memory_numa_MemUsed{instance=\"$host0\", node=\"$node\"}) * 100 /\n(node_memory_numa_MemTotal{instance=\"$host0\", node=\"$node\"})",
                             "format": "time_series",
                             "hide": true,
                             "interval": "$interval",
@@ -1791,7 +1747,7 @@
                             "calculatedInterval": "2m",
                             "datasourceErrors": {},
                             "errors": {},
-                            "expr": "avg_over_time(node_memory_numa_Active{instance=\"$host\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Active{instance=\"$host0\"}[$interval])",
                             "format": "time_series",
                             "hide": false,
                             "interval": "$interval",
@@ -1802,7 +1758,7 @@
                             "step": 300
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_Inactive{instance=\"$host\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Inactive{instance=\"$host0\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -1810,7 +1766,7 @@
                             "refId": "A"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_Dirty{instance=\"$host\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Dirty{instance=\"$host0\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -1818,7 +1774,7 @@
                             "refId": "C"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_Bounce{instance=\"$host\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Bounce{instance=\"$host0\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -1826,7 +1782,7 @@
                             "refId": "D"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_Mapped{instance=\"$host\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Mapped{instance=\"$host0\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -1834,7 +1790,7 @@
                             "refId": "E"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_KernelStack{instance=\"$host\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_KernelStack{instance=\"$host0\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -1935,7 +1891,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "rate(node_memory_numa_numa_hit_total{instance=\"$host\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host\", node=\"$node\"}[5m])",
+                            "expr": "rate(node_memory_numa_numa_hit_total{instance=\"$host0\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host0\", node=\"$node\"}[5m])",
                             "format": "time_series",
                             "hide": false,
                             "interval": "$interval",
@@ -2037,7 +1993,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "rate(node_memory_numa_numa_miss_total{instance=\"$host\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host\", node=\"$node\"}[5m])",
+                            "expr": "rate(node_memory_numa_numa_miss_total{instance=\"$host0\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host0\", node=\"$node\"}[5m])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2045,7 +2001,7 @@
                             "refId": "A"
                         },
                         {
-                            "expr": "rate(node_memory_numa_numa_miss_total{instance=\"$host\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host\", node=\"$node\"}[5m]) * 100 /\n(rate(node_memory_numa_numa_hit_total{instance=\"$host\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host\", node=\"$node\"}[5m]) + \nrate(node_memory_numa_numa_miss_total{instance=\"$host\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host\", node=\"$node\"}[5m]))",
+                            "expr": "rate(node_memory_numa_numa_miss_total{instance=\"$host0\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host0\", node=\"$node\"}[5m]) * 100 /\n(rate(node_memory_numa_numa_hit_total{instance=\"$host0\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_hit_total{instance=\"$host0\", node=\"$node\"}[5m]) + \nrate(node_memory_numa_numa_miss_total{instance=\"$host0\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_numa_miss_total{instance=\"$host0\", node=\"$node\"}[5m]))",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2138,7 +2094,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "avg_over_time(node_memory_numa_Active_anon{instance=\"$host\",node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Active_anon{instance=\"$host0\",node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2146,7 +2102,7 @@
                             "refId": "A"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_Inactive_anon{instance=\"$host\", node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Inactive_anon{instance=\"$host0\", node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2239,7 +2195,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "avg_over_time(node_memory_numa_Active_file{instance=\"$host\", node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Active_file{instance=\"$host0\", node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2247,7 +2203,7 @@
                             "refId": "A"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_Inactive_file{instance=\"$host\", node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Inactive_file{instance=\"$host0\", node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2341,7 +2297,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum by (node) (node_memory_numa_Shmem{instance=\"$host\", node=\"$node\"})",
+                            "expr": "sum by (node) (node_memory_numa_Shmem{instance=\"$host0\", node=\"$node\"})",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2349,7 +2305,7 @@
                             "refId": "A"
                         },
                         {
-                            "expr": "sum by (node) (node_memory_numa_ShmemHugePages{instance=\"$host\", node=\"$node\"})",
+                            "expr": "sum by (node) (node_memory_numa_ShmemHugePages{instance=\"$host0\", node=\"$node\"})",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2357,7 +2313,7 @@
                             "refId": "B"
                         },
                         {
-                            "expr": "sum by (node) (node_memory_numa_ShmemPmdMapped{instance=\"$host\", node=\"$node\"})",
+                            "expr": "sum by (node) (node_memory_numa_ShmemPmdMapped{instance=\"$host0\", node=\"$node\"})",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2451,7 +2407,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "sum by (node) (node_memory_numa_HugePages_Total{instance=\"$host\", node=\"$node\"})",
+                            "expr": "sum by (node) (node_memory_numa_HugePages_Total{instance=\"$host0\", node=\"$node\"})",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2459,7 +2415,7 @@
                             "refId": "A"
                         },
                         {
-                            "expr": "sum by (node) (node_memory_numa_HugePages_Free{instance=\"$host\", node=\"$node\"})",
+                            "expr": "sum by (node) (node_memory_numa_HugePages_Free{instance=\"$host0\", node=\"$node\"})",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2467,7 +2423,7 @@
                             "refId": "B"
                         },
                         {
-                            "expr": "sum by (node) (node_memory_numa_HugePages_Surp{instance=\"$host\", node=\"$node\"})",
+                            "expr": "sum by (node) (node_memory_numa_HugePages_Surp{instance=\"$host0\", node=\"$node\"})",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2560,7 +2516,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "rate(node_memory_numa_local_node_total{instance=\"$host\",node=\"$node\"}[$interval]) or\nirate(node_memory_numa_local_node_total{instance=\"$host\",node=\"$node\"}[$interval])",
+                            "expr": "rate(node_memory_numa_local_node_total{instance=\"$host0\",node=\"$node\"}[$interval]) or\nirate(node_memory_numa_local_node_total{instance=\"$host0\",node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2653,7 +2609,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "rate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_other_node_total{instance=\"$host\", node=\"$node\"}[5m])",
+                            "expr": "rate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[$interval]) or\nirate(node_memory_numa_other_node_total{instance=\"$host0\", node=\"$node\"}[5m])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2756,7 +2712,7 @@
                     "steppedLine": false,
                     "targets": [
                         {
-                            "expr": "avg_over_time(node_memory_numa_Slab{instance=\"$host\", node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_Slab{instance=\"$host0\", node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2764,7 +2720,7 @@
                             "refId": "A"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_SReclaimable{instance=\"$host\", node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_SReclaimable{instance=\"$host0\", node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2772,7 +2728,7 @@
                             "refId": "B"
                         },
                         {
-                            "expr": "avg_over_time(node_memory_numa_SUnreclaim{instance=\"$host\", node=\"$node\"}[$interval])",
+                            "expr": "avg_over_time(node_memory_numa_SUnreclaim{instance=\"$host0\", node=\"$node\"}[$interval])",
                             "format": "time_series",
                             "interval": "$interval",
                             "intervalFactor": 1,
@@ -2898,6 +2854,29 @@
                 "allValue": null,
                 "current": {},
                 "datasource": "Prometheus",
+                "hide": 2,
+                "includeAll": false,
+                "label": "Host0",
+                "multi": false,
+                "multiFormat": "regex values",
+                "name": "host0",
+                "options": [],
+                "query": "label_values(up{instance=~'$host'}, instance0)",
+                "refresh": 1,
+                "refresh_on_load": false,
+                "regex": "",
+                "sort": 1,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allFormat": "glob",
+                "allValue": null,
+                "current": {},
+                "datasource": "Prometheus",
                 "hide": 0,
                 "includeAll": false,
                 "label": "Host",
@@ -2929,7 +2908,7 @@
                 "multiFormat": "regex values",
                 "name": "mountpoint",
                 "options": [],
-                "query": "label_values(node_filesystem_avail{instance=\"$host\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}, mountpoint)",
+                "query": "label_values(node_filesystem_avail{instance=\"$host0\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}, mountpoint)",
                 "refresh": 1,
                 "refresh_on_load": false,
                 "regex": "",

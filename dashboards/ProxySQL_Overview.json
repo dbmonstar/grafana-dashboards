@@ -35,106 +35,62 @@
     "id": null,
     "iteration": 1535456477358,
     "links": [
-        {
-            "icon": "dashboard",
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "QAN"
-            ],
-            "targetBlank": false,
-            "title": "Query Analytics",
-            "type": "link",
-            "url": "/graph/dashboard/db/_pmm-query-analytics"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "OS"
-            ],
-            "targetBlank": false,
-            "title": "OS",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MySQL"
-            ],
-            "targetBlank": false,
-            "title": "MySQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "MongoDB"
-            ],
-            "targetBlank": false,
-            "title": "MongoDB",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PostgreSQL"
-            ],
-            "targetBlank": false,
-            "title": "PostgreSQL",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "HA"
-            ],
-            "targetBlank": false,
-            "title": "HA",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Cloud"
-            ],
-            "targetBlank": false,
-            "title": "Cloud",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "Insight"
-            ],
-            "targetBlank": false,
-            "title": "Insight",
-            "type": "dashboards"
-        },
-        {
-            "asDropdown": true,
-            "includeVars": true,
-            "keepTime": true,
-            "tags": [
-                "PMM"
-            ],
-            "targetBlank": false,
-            "title": "PMM",
-            "type": "dashboards"
-        }
+      {
+        "icon": "dashboard",
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "QAN"
+        ],
+        "targetBlank": false,
+        "title": "Query Analytics",
+        "type": "link",
+        "url": "/graph/dashboard/db/_pmm-query-analytics"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "OS"
+        ],
+        "targetBlank": false,
+        "title": "OS",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "MySQL"
+        ],
+        "targetBlank": false,
+        "title": "MySQL",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [
+          "Insight"
+        ],
+        "targetBlank": false,
+        "title": "Insight",
+        "type": "dashboards"
+      },
+      {
+        "asDropdown": true,
+        "icon": "external link",
+        "includeVars": true,
+        "keepTime": false,
+        "tags": [
+          "DBmon"
+        ],
+        "title": "DBMON",
+        "type": "dashboards"
+      }
     ],
     "panels": [
         {
@@ -949,7 +905,7 @@
             "renderer": "flot",
             "seriesOverrides": [
                 {
-                    "alias": "QP_efficiency_query",
+                    "alias": "QP_efficency_query",
                     "yaxis": 2
                 },
                 {
@@ -967,7 +923,7 @@
                     "hide": false,
                     "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "QP_efficiency_query",
+                    "legendFormat": "QP_efficency_query",
                     "refId": "A",
                     "step": 10
                 },
@@ -992,7 +948,7 @@
             "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Query processor time efficiency",
+            "title": "Query processor time efficecy",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -1401,7 +1357,7 @@
                     "format": "time_series",
                     "interval": "$interval",
                     "intervalFactor": 1,
-                    "legendFormat": "Query Cache GET efficiency",
+                    "legendFormat": "Query Cache GET efficency",
                     "metric": "",
                     "refId": "A",
                     "step": 60
@@ -1411,7 +1367,7 @@
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
-                    "legendFormat": "Insert VS read efficiency (high is good)",
+                    "legendFormat": "Insert VS read efficency (high is good)",
                     "refId": "B",
                     "step": 20
                 }
@@ -1467,7 +1423,7 @@
             "id": 74,
             "panels": [],
             "repeat": null,
-            "title": "Network Traffic and Mirroring efficiency",
+            "title": "Network Traffic and Mirroring efficency",
             "type": "row"
         },
         {
@@ -1621,7 +1577,7 @@
                     "expr": "proxysql_mysql_status_mirror_queue_length{instance=\"$proxysql\"}",
                     "format": "time_series",
                     "intervalFactor": 1,
-                    "legendFormat": "Mirror queue length (queries)",
+                    "legendFormat": "Mirror queue lenght (queries)",
                     "refId": "B",
                     "step": 20
                 }
@@ -1629,7 +1585,7 @@
             "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Mirroring efficiency",
+            "title": "Mirroring efficency",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
