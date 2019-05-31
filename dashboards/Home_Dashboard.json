@@ -54,7 +54,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1547178688477,
+  "iteration": 1550980478525,
   "links": [
     {
       "icon": "dashboard",
@@ -891,11 +891,11 @@
       },
       "yaxes": [
         {
-          "decimals": 2,
+          "decimals": null,
           "format": "short",
           "label": "threads",
           "logBase": 1,
-          "max": "100",
+          "max": null,
           "min": "0",
           "show": true
         },

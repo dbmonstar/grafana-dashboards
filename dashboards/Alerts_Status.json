@@ -54,7 +54,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1550160033922,
+  "iteration": 1550978228937,
   "links": [
     {
       "icon": "dashboard",
@@ -522,22 +522,262 @@
     },
     {
       "columns": [],
-      "datasource": "DBMON-STAR",
+      "datasource": "Prometheus",
       "fontSize": "100%",
       "gridPos": {
-        "h": 11,
-        "w": 24,
+        "h": 6,
+        "w": 12,
         "x": 0,
         "y": 14
       },
-      "id": 50,
+      "id": 43,
       "links": [],
       "pageSize": null,
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "col": null,
+        "col": 6,
         "desc": false
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "/Value(.*)/",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Level",
+          "colorMode": "row",
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "level",
+          "preserveFormat": false,
+          "sanitize": false,
+          "thresholds": [
+            ""
+          ],
+          "type": "string",
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "1",
+              "value": ""
+            },
+            {
+              "text": "",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "alertstate",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "ALERTS{alertstate=\"firing\", level=\"critical\",instance=~\"$host\"} == 1",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Current critical list",
+      "transform": "table",
+      "type": "table"
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 14
+      },
+      "id": 45,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 6,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "/Value(.*)/",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Level",
+          "colorMode": "row",
+          "colors": [
+            "#c15c17",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "level",
+          "preserveFormat": false,
+          "sanitize": false,
+          "thresholds": [
+            ""
+          ],
+          "type": "string",
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "1",
+              "value": ""
+            },
+            {
+              "text": "",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "alertstate",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "ALERTS{alertstate=\"firing\", level=\"warning\",instance=~\"$host\"} == 1",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Current warning list",
+      "transform": "table",
+      "type": "table"
+    },
+    {
+      "columns": [],
+      "datasource": "DBMON-STAR",
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "id": 48,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
       },
       "styles": [
         {
@@ -556,57 +796,26 @@
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
-          "pattern": "starts_at|ends_at",
+          "pattern": "/.*_at/",
           "thresholds": [],
           "type": "date",
           "unit": "short"
         },
         {
           "alias": "",
-          "colorMode": "row",
+          "colorMode": null,
           "colors": [
-            "rgba(245, 54, 54, 0)",
+            "rgba(245, 54, 54, 0.9)",
             "rgba(237, 129, 40, 0.89)",
-            "rgb(245, 54, 54)"
+            "rgba(50, 172, 45, 0.97)"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
-          "mappingType": 2,
-          "pattern": "level_num",
-          "rangeMaps": [
-            {
-              "from": "1",
-              "text": "critical",
-              "to": "1"
-            },
-            {
-              "from": "0",
-              "text": "warning",
-              "to": "0"
-            },
-            {
-              "from": "-1",
-              "text": "critical",
-              "to": "-1"
-            },
-            {
-              "from": "-2",
-              "text": "warning",
-              "to": "-2"
-            }
-          ],
-          "thresholds": [
-            "0",
-            "1"
-          ],
+          "mappingType": 1,
+          "pattern": "status",
+          "thresholds": [],
           "type": "string",
-          "unit": "short",
-          "valueMaps": [
-            {
-              "text": "",
-              "value": ""
-            }
-          ]
+          "unit": "short"
         }
       ],
       "targets": [
@@ -615,21 +824,16 @@
           "expr": "",
           "format": "table",
           "intervalFactor": 1,
-          "rawSql": "SELECT \n  instance, \n  subject, \n  (level = 'critical') level_num,\n  status, \n  description, \n  starts_at, \n  ends_at \nFROM hook \nWHERE status = 'firing' \nORDER BY (level = 'critical') desc\nlimit 100\n",
+          "rawSql": "SELECT \n  id,\n  name,\n  instance,\n  level,\n  subject,\n  status,\n  description,\n  created_at\nFROM hook\nORDER BY id DESC\nLIMIT 100;",
           "refId": "A"
-        },
-        {
-          "alias": "",
-          "format": "table",
-          "rawSql": "SELECT \n  instance, \n  subject, \n  (level = 'critical')-2 level_num,\n  status, \n  description, \n  starts_at, \n  ends_at \nFROM hook \nWHERE status = 'resolved' \nORDER BY id DESC \nlimit 100\n",
-          "refId": "B"
         }
       ],
-      "title": "Alert History",
+      "title": "Alert Sent History",
       "transform": "table",
       "type": "table"
     }
   ],
+  "refresh": "5s",
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
